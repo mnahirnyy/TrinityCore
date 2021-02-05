@@ -371,6 +371,7 @@ SpellImplicitTargetInfo::StaticData  SpellImplicitTargetInfo::_data[TOTAL_SPELL_
 };
 
 SpellEffectInfo::SpellEffectInfo(SpellInfo const* spellInfo, SpellEffectEntry const* _effect)
+    : EffectAttributes(SpellEffectAttributes::None)
 {
     ASSERT(spellInfo);
     ASSERT(_effect);
@@ -403,6 +404,7 @@ SpellEffectInfo::SpellEffectInfo(SpellInfo const* spellInfo, SpellEffectEntry co
     Scaling.Variance = _effect->Variance;
     Scaling.ResourceCoefficient = _effect->ResourceCoefficient;
     ImplicitTargetConditions = nullptr;
+    EffectAttributes = _effect->GetEffectAttributes();
 }
 
 bool SpellEffectInfo::IsEffect() const
