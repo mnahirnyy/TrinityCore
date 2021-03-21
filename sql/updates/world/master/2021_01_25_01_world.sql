@@ -16,11 +16,11 @@ INSERT INTO `gameobject_addon` (`guid`, `parent_rotation0`, `parent_rotation1`, 
 (@OGUID+3, 0, 0, 0.998391687870025634, -0.05669287219643592), -- Portal to Silvermoon
 (@OGUID+4, 0, 0, 0.998391687870025634, -0.05669287219643592); -- Portal to Zuldazar
 
-UPDATE `gameobject_template` SET `ContentTuningId`=331, `VerifiedBuild`=36839 WHERE `entry`=323850; -- Portal to Azsuna
-UPDATE `gameobject_template` SET `Data5`=76876, `ContentTuningId`=826, `VerifiedBuild`=36839 WHERE `entry`=323851; -- Portal to Dalaran, Crystalsong Forest
-UPDATE `gameobject_template` SET `ContentTuningId`=57, `VerifiedBuild`=36839 WHERE `entry`=323852; -- Portal to Honeydew Village
-UPDATE `gameobject_template` SET `ContentTuningId`=866, `VerifiedBuild`=36839 WHERE `entry`=323854; -- Portal to Silvermoon
-UPDATE `gameobject_template` SET `ContentTuningId`=189, `VerifiedBuild`=36839 WHERE `entry`=323855; -- Portal to Zuldazar
+-- UPDATE `gameobject_template` SET `ContentTuningId`=331, `VerifiedBuild`=36839 WHERE `entry`=323850; -- Portal to Azsuna
+UPDATE `gameobject_template` SET `Data5`=76876, `VerifiedBuild`=36839 WHERE `entry`=323851; -- Portal to Dalaran, Crystalsong Forest
+-- UPDATE `gameobject_template` SET `ContentTuningId`=57, `VerifiedBuild`=36839 WHERE `entry`=323852; -- Portal to Honeydew Village
+-- UPDATE `gameobject_template` SET `ContentTuningId`=866, `VerifiedBuild`=36839 WHERE `entry`=323854; -- Portal to Silvermoon
+-- UPDATE `gameobject_template` SET `ContentTuningId`=189, `VerifiedBuild`=36839 WHERE `entry`=323855; -- Portal to Zuldazar
 
 UPDATE `gameobject_template_addon` SET `flags`=0x2000000, `AIAnimKitID`=3503 WHERE `entry`=323850; -- Portal to Azsuna
 UPDATE `gameobject_template_addon` SET `flags`=0x2000000, `AIAnimKitID`=3503 WHERE `entry`=323851; -- Portal to Dalaran, Crystalsong Forest
@@ -53,10 +53,10 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (148250, 0, 0, 0, 257, 0, 0, 0, 0, '287432'), -- 148250 (Silvermoon Magistrix)
 (148242, 0, 0, 0, 257, 0, 0, 0, 0, '287432'); -- 148242 (Silvermoon Magister)
 
-UPDATE `creature_template` SET `minlevel`=45, `maxlevel`=45 WHERE `entry`=148768; -- Shal'dorei Arcanist
-UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=145714; -- Use the Portal to Zuldazar
-UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148265; -- Zandalari Arcanital
-UPDATE `creature_template` SET `minlevel`=35, `maxlevel`=35 WHERE `entry`=148263; -- Huojin Magister
-UPDATE `creature_template` SET `minlevel`=30, `maxlevel`=30 WHERE `entry`=149258; -- Argent Mage
-UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148250; -- Silvermoon Magistrix
-UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148242; -- Silvermoon Magister
+-- UPDATE `creature_template` SET `minlevel`=45, `maxlevel`=45 WHERE `entry`=148768; -- Shal'dorei Arcanist
+-- UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=145714; -- Use the Portal to Zuldazar
+-- UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148265; -- Zandalari Arcanital
+-- UPDATE `creature_template` SET `minlevel`=35, `maxlevel`=35 WHERE `entry`=148263; -- Huojin Magister
+-- UPDATE `creature_template` SET `minlevel`=30, `maxlevel`=30 WHERE `entry`=149258; -- Argent Mage
+-- UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148250; -- Silvermoon Magistrix
+-- UPDATE `creature_template` SET `minlevel`=50, `maxlevel`=50 WHERE `entry`=148242; -- Silvermoon Magister
