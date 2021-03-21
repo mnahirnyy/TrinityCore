@@ -4202,7 +4202,7 @@ enum QuestInfo
     QUEST_INFO_SIDE_QUEST          = 104
 };
 
-// QuestSort.dbc (9.0)
+// QuestSort.dbc (8.3.7)
 enum QuestSort
 {
     QUEST_SORT_EPIC                             = 1,
@@ -4331,18 +4331,7 @@ enum QuestSort
     QUEST_SORT_VISIONS_OF_NZOTH                 = 580,
     QUEST_SORT_VULPERA                          = 582,
     QUEST_SORT_MECHAGNOME                       = 583,
-    QUEST_SORT_BLACK_EMPIRE_CAMPAIGN            = 584,
-    QUEST_SORT_EMBER_COURT                      = 586,
-    QUEST_SORT_THROUGH_THE_SHATTERED_SKY        = 587,
-    QUEST_SORT_DEATH_RISING                     = 588,
-    QUEST_SORT_KYRIAN_CALLINGS                  = 589,
-    QUEST_SORT_NIGHT_FAE_CALLINGS               = 590,
-    QUEST_SORT_NECROLORD_CALLINGS               = 591,
-    QUEST_SORT_VENTHYR_CALLINGS                 = 592,
-    QUEST_SORT_ABOMINABLE_STITCHING             = 593,
-    QUEST_SORT_TIMEWALKING_CAMPAIGN             = 594,
-    QUEST_SORT_PATH_OF_ASCENSION                = 595,
-    QUEST_SORT_LEGENDARY_CRAFTING               = 596
+    QUEST_SORT_BLACK_EMPIRE_CAMPAIGN            = 584
 };
 
 inline uint8 ClassByQuestSort(int32 QuestSort)
