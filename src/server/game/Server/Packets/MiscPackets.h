@@ -631,6 +631,7 @@ namespace WorldPackets
             ObjectGuid SourceObjectGUID;
             int32 SoundKitID = 0;
             TaggedPosition<::Position::XYZ> Position;
+            int32 BroadcastTextID = 0;
         };
 
         class TC_GAME_API PlaySound final : public ServerPacket
@@ -644,6 +645,7 @@ namespace WorldPackets
 
             ObjectGuid SourceObjectGuid;
             int32 SoundKitID = 0;
+            int32 BroadcastTextID = 0;
         };
 
         class TC_GAME_API PlaySpeakerbotSound final : public ServerPacket
