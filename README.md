@@ -83,7 +83,7 @@ Read file [COPYING](COPYING).
 
 ## Authors &amp; Contributors
 
-Read file [AUTHORS](AUTHORS).
+Read file [THANKS](THANKS).
 
 
 ## Links

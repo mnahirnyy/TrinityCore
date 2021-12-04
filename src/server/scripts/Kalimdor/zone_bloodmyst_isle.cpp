@@ -28,6 +28,7 @@ npc_webbed_creature
 EndContentData */
 
 #include "ScriptMgr.h"
+#include "SpellMgr.h"
 #include "CellImpl.h"
 #include "GridNotifiersImpl.h"
 #include "Group.h"
@@ -46,7 +47,7 @@ uint32 const possibleSpawns[31] = {17322, 17661, 17496, 17522, 17340, 17352, 173
 
 enum WebbedCreature
 {
-    NPC_EXPEDITION_RESEARCHER                     = 17681
+    NPC_EXPEDITION_RESEARCHER = 17681
 };
 
 class npc_webbed_creature : public CreatureScript
@@ -806,9 +807,70 @@ public:
     }
 };
 
+// https://www.wowhead.com/item=24318/water-sample-flask
+// 24318
+class item_water_sample_flask_24318 : public ItemScript
+{
+public:
+    item_water_sample_flask_24318() : ItemScript("item_water_sample_flask_24318") { }
+
+    enum eItem {
+        QUEST_DONT_DRINK_THE_WATER = 9748,
+        SPELL_BLOODMYST_WATER_SAMPLE = 31549,
+    };
+
+    bool OnUse(Player* player, Item* /*item*/, SpellCastTargets const& /*targets*/, ObjectGuid castId) override
+    {
+        if (player->GetQuestStatus(QUEST_DONT_DRINK_THE_WATER) == QUEST_STATUS_INCOMPLETE)
+            if (GameObject* go = player->FindNearestGameObject(300075, 5.0f))
+                if (SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(SPELL_BLOODMYST_WATER_SAMPLE))
+                    Spell::SendCastResult(player, spellInfo, 0, castId, SPELL_FAILED_NOT_HERE);
+
+        return false;
+    }
+};
+
+// https://www.wowhead.com/spell=31549/bloodmyst-water-sample
+// 31549 Take Bloodmyst Water Sample
+class spell_bloodmyst_water_sample : public SpellScriptLoader
+{
+public:
+    spell_bloodmyst_water_sample() : SpellScriptLoader("spell_bloodmyst_water_sample") { }
+
+    enum eSpell {
+        ITEM_BLOODMYST_WATER_SAMPLE = 24317,
+    };
+
+    class spell_bloodmyst_water_sample_SpellScript : public SpellScript
+    {
+        PrepareSpellScript(spell_bloodmyst_water_sample_SpellScript);
+
+        void HandleDummy(SpellEffIndex /*effIndex*/)
+        {
+            Player* caster = GetCaster()->ToPlayer();
+            caster->AddItem(ITEM_BLOODMYST_WATER_SAMPLE, 1);
+        }
+
+        void Register() override
+        {
+            OnEffectHit += SpellEffectFn(spell_bloodmyst_water_sample_SpellScript::HandleDummy, EFFECT_1, SPELL_EFFECT_DUMMY);
+        }
+    };
+
+    SpellScript* GetSpellScript() const override
+    {
+        return new spell_bloodmyst_water_sample_SpellScript();
+    }
+};
+
+/*######
+## AddSC
+######*/
 void AddSC_bloodmyst_isle()
 {
     new npc_webbed_creature();
     new npc_sironas();
     new npc_demolitionist_legoso();
+    new item_water_sample_flask_24318();
+    new spell_bloodmyst_water_sample();
 }
